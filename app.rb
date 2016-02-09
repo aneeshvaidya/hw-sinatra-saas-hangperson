@@ -46,7 +46,7 @@ class HangpersonApp < Sinatra::Base
         flash[:message] = "You have already used that letter."
       end
     rescue ArgumentError
-      flash[:message] = "Invalid guess"
+      flash[:message] = "Invalid guess."
     end
     
     redirect '/show'
@@ -75,7 +75,7 @@ class HangpersonApp < Sinatra::Base
     if state == :win
       erb :win
     else
-      erb :show
+      redirect '/show'
     end
   end
   
@@ -85,7 +85,7 @@ class HangpersonApp < Sinatra::Base
     if state == :lose
       erb :lose
     else
-      erb :show
+      redirect '/show'
     end
   end
   
